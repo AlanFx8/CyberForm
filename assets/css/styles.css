@@ -1,0 +1,244 @@
+/*THE MAIN STYLESHEET*/
+/*COLOUR REFERENCES*/
+/*
+    Main Color: #0CFF00
+    Glow Color: #009300
+    Label Color: #75D675;
+    Placeholder Text Color: #64FC64;
+    Error Color: #A80000
+*/
+
+/*IMPORT GOOGLE FONTS*/
+@import url('http://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
+
+/*RESET*/
+@import url('reset.css');
+
+/*THE FIRST LAYOUT*/
+body {
+    background-color: #000000;
+    color: #0CFF00;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    font-size: 1em;
+}
+
+#siteWrapper {
+    padding: 1em;
+    min-height: 100vh;
+}
+
+/*Fieldsets and legends*/
+fieldset {
+    border: solid 1px #28DE14;
+    padding: .5em;
+    padding-top: 0;
+}
+
+legend {
+    background: #000000;
+    margin-left: 1em;
+    text-transform: uppercase;
+}
+
+legend::before {
+    content: "\023A-";
+}
+
+/*Text Area*/
+textarea {
+    background: #000000;
+    color: #0CFF00;
+    border: solid 1px #0CFF00;
+    width: 100%;
+    padding: .5em;
+    resize: none;
+}
+
+/*Inputs and labels*/
+input {
+    background: #000000;
+    color: #0CFF00;
+    border: solid 1px #0CFF00;
+    height: 2.5em;
+    padding-left: .5em;
+    width: 100%;
+}
+
+label {
+    text-transform: uppercase;
+}
+
+/*The FormSet Divs*/
+.formSet {
+    position: relative;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.formSet > label {
+    color: #75D675;
+    background-color: #000000;
+    position: absolute;
+    pointer-events: none;
+}
+
+/*Only basicFormSet labels start out as placeholders*/
+.basicFormSet input ~ label, .basicFormSet textarea ~ label {
+    top: 4px;
+    left: 8px;
+    transition: .5s;
+}
+
+.advancedFormSet {
+    border: solid 1px #0CFF00;
+    padding: .5em;
+}
+
+input.inUse {
+    box-shadow: 0 0 1px 1px #009300;
+}
+
+/*We hide the green glow if the input is invalid*/
+input.inUse.invalid {
+    box-shadow: none;
+}
+
+/*We have to have a class of required on formSets so the red stars looks consistent with advancedFormSets too*/
+.formSet.required::before {
+    content: "*";
+    color: #A80000;
+    font-size: 1.8em;
+    position: absolute;
+    top: 50%;
+    left: -18px;
+    transform: translate(0, -40%);
+}
+
+::placeholder {
+    color: #64FC64;
+}
+
+/*inUse acts for focused and non-empty elements*/
+/*We can use focus and valid but only if noValidate is false*/
+.basicFormSet input.inUse ~ label, .basicFormSet textarea.inUse ~ label, .advancedFormSet > label {
+    top: -8px;
+    left: 12px;
+    font-weight: bold;
+    font-size: .7em;
+    letter-spacing: .2em;
+}
+
+/*Specific fields such as birthday, gender, etc.*/
+#birthDay, #birthMonth, #birthYear {
+    margin-top: .5em;
+    width: 2.5em;
+    height: 1.8em;
+}
+
+#birthYear {
+    width: 4em;
+}
+
+/*Select*/
+select {
+    width: 100%;
+    height: 1.8em;
+    margin-top: .5em;
+    text-align: center;
+    text-transform: uppercase;
+    background: #051800;
+    color: #0CFF00;
+    border: solid 1px #0CFF00;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select::-ms-expand { /* for IE 11 */
+    display: none;
+}
+
+/*Password Wrapper and Toggle*/
+#passwordWrapper > .formSet {
+    display: inline-block;
+    width: 40%;
+    margin-right: 2.5%;
+}
+
+#passwordToggle {
+    display: inline-block;
+}
+
+#passwordToggle:hover {
+    cursor: pointer;
+}
+
+/*BioInfo*/
+#bioInfo {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+/*Errors*/
+.errorMSG {
+    color: #A80000;
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+
+.errorMSG.active {
+    display: block;
+}
+
+input.invalid, .advancedFormSet.invalid {
+    border: solid 1px #A80000;
+}
+
+input.invalid ~ label {
+    color:  #A80000;
+}
+
+#bioInfo.invalid {
+    color: #A80000;
+ }
+
+/*Submit Button*/
+button {
+    width: 60%;
+    background-color: #0CFF00;
+    color: #000000;
+    font-size: .8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    padding: 1em;
+    cursor: pointer;
+    transition: .5s;
+}
+
+button:hover {
+    background-color: #75D675; /*The label colour*/
+    font-style: italic;
+}
+
+/*THE SECOND LAYOUT*/
+@media screen and (min-width: 50em){
+    body {
+        background-image: url('../img/grid.png'),
+        linear-gradient(to right, green 0, transparent 12%, transparent 88%, green 100%);
+        background-color: #000000;
+    }
+
+    #siteWrapper {
+        margin: auto;
+        max-width: 45em;
+        background: #000000;
+        border-left: solid 1px #0CFF00;
+        border-right: solid 1px #0CFF00;
+        box-shadow: 0 0 2px 2px #009300;
+    }
+}

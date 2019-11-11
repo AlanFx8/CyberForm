@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>The Cyber Form</title>
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css"><!-- For eye icons -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+    <body>
+        <div id="siteWrapper">
+            <form action="results.php" method="post" id="mainForm" name="mainForm">
+                <fieldset>
+                    <legend>LEVEL ONE: USER INFO</legend>
+                    <!-- First Name -->
+                    <div class="formSet basicFormSet required">
+                        <input type="text" name="firstName" id="firstName" maxlength="20" required />
+                        <label>FIRST NAME</label>
+                    </div>
+
+                    <!-- Middle Name -->
+                    <div class="formSet basicFormSet">
+                        <input type="text" name="middleName" id="middleName" maxlength="30" />
+                        <label>MIDDLE NAME(S)</label>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="formSet basicFormSet required">
+                        <input type="text" name="lastName" id="lastName" maxlength="20" required />
+                        <label>LAST NAME</label>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="formSet advancedFormSet required">
+                        <input type="text" name="birthDay" id="birthDay" maxlength="2" required placeholder="DD" /> -
+                        <input type="text" name="birthMonth" id="birthMonth" maxlength="2" placeholder="MM" /> -
+                        <input type="text" name="birthYear" id="birthYear" maxlength="4" placeholder="YYYY" />
+                        <label>Date of Birth</label>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="formSet advancedFormSet">
+                        <label>GENDER</label>
+                        <select name="gender" id="gender">
+                            <option value="none">Undisclosed</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>LEVEL TWO: ACCOUNT INFO</legend>
+                    <!--Email-->
+                    <div class="formSet basicFormSet required">
+                        <input type="email" name="email" id="email" required />
+                        <label for="email">EMAIL</label>
+                    </div>
+
+                    <!-- Password -->
+                    <div id="passwordWrapper"><!--Need to half the size of the input fields-->
+                        <div class="formSet basicFormSet required">
+                            <input type="password" name="password" id="password" maxlength="20" required />
+                            <label>PASSWORD</label>
+                        </div>
+                        <div class="formSet basicFormSet required">
+                            <input type="password" name="passwordConfirm" id="passwordConfirm" maxlength="20" required />
+                            <label>CONFIRM</label>
+                        </div>
+                        <div id="passwordToggle" class="fa fa-eye-slash" aria-hidden="true"></div>
+                    </div>
+
+                    <!--Bio-->
+                    <div class="formSet basicFormSet">
+                        <textarea name="bio" id="bio" rows="10"></textarea>
+                        <label for="bio">BIO</label>
+                    </div>
+                    <div id="bioInfo"></div>
+                </fieldset>
+
+                <!--Submit Button-->
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+        <!-- Scripts -->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
